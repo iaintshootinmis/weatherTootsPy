@@ -8,6 +8,14 @@ import socket
 import argparse
 import datetime
 
+# Purpose
+# Retrieves weather data from the Wunderground API service
+# And toots it at an interval and mastodon instance of your choosing
+
+# TODO 
+# APIKey arguments aren't filled out
+# Add a TimeFunction and argument for Interval to poll Wunderground and toot
+
 # Assign variables 
 errorpath = "/home/justin/Documents/code/python/weather/weatherPy.error"
 configpath = "/home/justin/Documents/code/python/weather/weatherPy.config"
@@ -82,9 +90,12 @@ def internet(host="8.8.8.8", port=53, timeout=3):
 
 internet()
 
+# Construct URL 
+baseUrl = ("https://api.weather.com/v2/pws/observations/current?stationId="+str(args.stationID)+"&format=json&units="+args.units+"&apiKey="+args.Apikey)
 
 # Get Weather 
 # Use the IBM Docs Here, and the API Key 
+
 # Toot Weather 
 
 # Time Function
